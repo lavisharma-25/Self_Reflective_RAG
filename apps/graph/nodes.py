@@ -2,6 +2,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from prompts import (retrieval_router_prompt, direct_generate_prompt)
 from model.llm_model import llm
 from schema.schema import State, RetrieveDecision
+from apps.embeddings.vector_store import create_embeddings
 
 decide_retrieval_prompt = ChatPromptTemplate.from_messages(retrieval_router_prompt)
 should_retrieve_llm = llm.with_structured_output(RetrieveDecision)
@@ -24,5 +25,8 @@ def generate_direct(state: State):
     return {"answer": output.content}
 
 def retrieve(state: State):
-    retriever = vector_store_instance.as_retriever(search_kwargs={"k": 4})
+    vector_store = create_embeddings()
+    retriever = vector_store.as_retriever(search_kwargs={"k": 4})
+    print("TESTING", retriever)
     return {"docs": retriever.invoke(state["question"])}
+

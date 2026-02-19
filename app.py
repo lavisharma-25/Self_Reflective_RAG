@@ -1,16 +1,26 @@
 from fastapi import FastAPI, HTTPException
+from langchain_community.document_loaders import PyPDFLoader
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from apps.embeddings.vector_store import create_embeddings
-import apps.embeddings.vector_store as vector_store_module
 
 app = FastAPI()
 
 @app.post("/build-embeddings")
 def build_embeddings():
-    if vector_store_module.vector_store_instance is not None:
-        return {"message": "Embeddings already created"}
 
-    try:
-        vector_store_module.vector_store_instance = vector_store_module.create_embeddings()
-        return {"message": "Embeddings created successfully"}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+    docs = (
+        PyPDFLoader("apps/data/Company_Policies.pdf").load()
+        + PyPDFLoader("apps/data/Company_Profile.pdf").load()
+        + PyPDFLoader("apps/data/Product_and_Pricing.pdf").load()
+    )
+
+    chunks = RecursiveCharacterTextSplitter(
+        chunk_size=600,
+        chunk_overlap=150
+    ).split_documents(docs)
+
+    vector_store = create_embeddings()
+    vector_store.add_documents(chunks)
+    vector_store.save_local("faiss_index")
+
+    return {"message": "Embeddings built successfully"}

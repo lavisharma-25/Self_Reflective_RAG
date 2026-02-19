@@ -1,32 +1,42 @@
-from langchain_community.document_loaders import PyPDFLoader
+import faiss
 from langchain_community.vectorstores import FAISS
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_community.docstore.in_memory import InMemoryDocstore
 from ..config import gemini_api_key
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
-class Create_Embedding():
-    def __
-
 def create_embeddings():
-    global vector_store_instance
-    docs = (
-        PyPDFLoader("../data/Company_Policies.pdf").load()
-        + PyPDFLoader("../data/Company_Profile.pdf").load()
-        + PyPDFLoader("../data/Product_and_Pricing.pdf").load()
-    )
 
-    chunks = RecursiveCharacterTextSplitter(
-        chunk_size=600, chunk_overlap=150
-        ).split_documents(docs)
+    index_path = "faiss_index"
 
     embeddings = GoogleGenerativeAIEmbeddings(
         model="gemini-embedding-001",
         api_key=gemini_api_key
+    )
+
+    # If index exists → load
+    if os.path.exists(index_path):
+        print("Loading existing FAISS index...")
+        return FAISS.load_local(
+            index_path,
+            embeddings,
+            allow_dangerous_deserialization=True
         )
 
-    
-    return vector_store_instance
+    # Else → create empty index safely
+    print("Creating new FAISS index...")
+
+    embedding_dim = len(embeddings.embed_query("dummy text"))
+    index = faiss.IndexFlatL2(embedding_dim)
+
+    vector_store = FAISS(
+        embedding_function=embeddings,
+        index=index,
+        docstore=InMemoryDocstore({}),
+        index_to_docstore_id={}
+    )
+
+    vector_store.save_local(index_path)
+
+    return vector_store
 
