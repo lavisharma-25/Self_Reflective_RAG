@@ -13,7 +13,6 @@ retrieval_router_prompt = [
     ]
 
 direct_generate_prompt = [
-    [
         (
             "system",
             "Answer the question using only your general knowledge.\n"
@@ -23,4 +22,3 @@ direct_generate_prompt = [
         ),
         ("human", "{question}"),
     ]
-]

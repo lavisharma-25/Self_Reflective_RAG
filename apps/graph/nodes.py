@@ -1,8 +1,8 @@
 from langchain_core.prompts import ChatPromptTemplate
-from prompts import (retrieval_router_prompt, direct_generate_prompt)
-from model.llm_model import llm
-from schema.schema import State, RetrieveDecision
-from apps.embeddings.vector_store import create_embeddings
+from .prompts import (retrieval_router_prompt, direct_generate_prompt)
+from ..model.llm_model import llm
+from ..schema.schema import State, RetrieveDecision
+from ..embeddings.vector_store import create_embeddings
 
 decide_retrieval_prompt = ChatPromptTemplate.from_messages(retrieval_router_prompt)
 should_retrieve_llm = llm.with_structured_output(RetrieveDecision)

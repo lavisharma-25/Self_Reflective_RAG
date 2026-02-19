@@ -24,3 +24,9 @@ def build_embeddings():
     vector_store.save_local("faiss_index")
 
     return {"message": "Embeddings built successfully"}
+
+
+@app.post("/run")
+def initiate_self_rag():
+    "Todo"
+    return
