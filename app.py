@@ -29,4 +29,8 @@ def build_embeddings():
 @app.post("/run")
 def initiate_self_rag():
     "Todo"
-    return
+    return None
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)

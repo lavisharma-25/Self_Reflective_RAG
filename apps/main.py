@@ -1,13 +1,24 @@
 from apps.graph.rag import workflow
-import json
 
 input_data = {
-    "question": "What is company refund policy?"
-    # 'question': "What is Machine Learning?"
+    "question": "Who is the CEO of NexaAI",
+    "need_retrieval": False,
+    "docs": [],
+    "answer": "",
 }
 
 result = workflow.invoke(input_data)
-test = dict(result)
-print(f"{result['question']}")
-# print(f"{result['answer']}")
-print(test.keys())
+
+print(f"Question: {result['question']}")
+print(f"Answer: {result['answer']}")
+print(f"Bool: {result['need_retrieval']}")
+print(f"Docs: {result['docs']}")
+
+
+for doc in result['docs']:
+    print(doc.page_content)
+    print("*"*100)
+
+for doc in result['relevant_docs']:
+    print(doc.page_content)
+    print("*"*100)

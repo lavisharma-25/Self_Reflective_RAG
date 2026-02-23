@@ -22,3 +22,17 @@ direct_generate_prompt = [
         ),
         ("human", "{question}"),
     ]
+
+is_relevant_docs_prompt = [
+        (
+            "system",
+            "You are judging document relevance.\n"
+            "Return JSON that matches this schema:\n"
+            "{{'is_relevant': boolean}}\n\n"
+            "A document is relevant if it contains information useful for answering the question."
+        ),
+        (
+            "human",
+            "Question:\n{question}\n\nDocument:\n{document}"
+        ),
+    ]
