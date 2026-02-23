@@ -1,7 +1,12 @@
 from typing import List
 from langchain_core.documents import Document
 from langchain_core.prompts import ChatPromptTemplate
-from .prompts import (retrieval_router_prompt, direct_generate_prompt, is_relevant_docs_prompt)
+from .prompts import (
+    retrieval_router_prompt, 
+    direct_generate_prompt, 
+    is_relevant_docs_prompt,
+    context_generation_prompt
+    )
 from ..model.llm_model import llm
 from ..embeddings.vector_store import create_embeddings
 from ..schema.schema import State, RetrieveDecision, RelevanceDecision
@@ -53,3 +58,27 @@ def is_relevant(state: State):
             relevant_docs.append(doc)
 
     return {"relevant_docs": relevant_docs}
+
+
+rag_generation_prompt = ChatPromptTemplate.from_messages(context_generation_prompt)
+
+def generate_from_context(state: State):
+    # Stuff relevant docs into one block
+    context = "\n\n---\n\n".join(
+        [d.page_content for d in state.get("relevant_docs", [])]
+    ).strip()
+
+    if not context:
+        return {"answer": "No relevant document found.", "context": ""}
+
+    out = llm.invoke(
+        rag_generation_prompt.format_messages(
+            question=state["question"],
+            context=context
+        )
+    )
+    return {"answer": out.content, "context": context}
+
+
+def no_relevant_docs(state: State):
+    return {"answer": "No relevant document found.", "context": ""}

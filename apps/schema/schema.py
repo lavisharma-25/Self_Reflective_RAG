@@ -6,6 +6,7 @@ from langchain_core.documents import Document
 class State(TypedDict):
     question: str
     answer: str
+    context: str
 
     need_retrieval: bool
 

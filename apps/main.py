@@ -1,7 +1,8 @@
 from apps.graph.rag import workflow
 
 input_data = {
-    "question": "Who is the CEO of NexaAI",
+    # "question": "Who is the CEO of NexaAI",
+    "question": "What is the refund policy of NexaAI?",
     "need_retrieval": False,
     "docs": [],
     "answer": "",
