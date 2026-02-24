@@ -1,9 +1,10 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
-import os
-from ..config import gemini_api_key
+from apps.config import credentials, gemini_model, location
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
-    api_key=gemini_api_key,
-    temperature=0
+    model=gemini_model,
+    project=credentials.project_id,
+    credentials=credentials,
+    location=location,
+    vertexai=True
 )
