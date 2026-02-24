@@ -13,6 +13,10 @@ class State(TypedDict):
     docs: List[Document]
     relevant_docs: List[Document]
 
+    # Post Generation verification
+    issup: Literal["fully_supported", "partially_supported", "no_support"]
+    evidence: List[str]
+
 
 class RetrieveDecision(BaseModel):
     should_retrieve: bool = Field(
@@ -26,3 +30,7 @@ class RelevanceDecision(BaseModel):
         ...,
         description="True if the document helps answer the question, else False."
     )
+
+class IsSUPDecision(BaseModel):
+    issup: Literal["fully_supported", "partially_supported", "no_support"]
+    evidence: List[str] = Field(default_factory=list)

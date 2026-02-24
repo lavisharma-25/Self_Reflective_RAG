@@ -1,29 +1,32 @@
 from typing import List
 from langchain_core.documents import Document
-from langchain_core.prompts import ChatPromptTemplate
 from .prompts import (
-    retrieval_router_prompt, 
-    direct_generate_prompt, 
-    is_relevant_docs_prompt,
-    context_generation_prompt
+    decide_retrieval_prompt, 
+    direct_generation_prompt, 
+    is_relevant_prompt,
+    rag_generation_prompt,
+    issup_prompt
     )
 from ..model.llm_model import llm
 from ..embeddings.vector_store import create_embeddings
-from ..schema.schema import State, RetrieveDecision, RelevanceDecision
+from ..schema.schema import State, RetrieveDecision, RelevanceDecision, IsSUPDecision
 
 
-decide_retrieval_prompt = ChatPromptTemplate.from_messages(retrieval_router_prompt)
+# ----------------------------
+# 1. Decide Retrieval
+# ----------------------------
 should_retrieve_llm = llm.with_structured_output(RetrieveDecision)
 
 def decide_retrieval(state: "State"):
     decision: RetrieveDecision = should_retrieve_llm.invoke(
-        decide_retrieval_prompt.format_messages(question=state["question"])
+        decide_retrieval_prompt.format_messages(question=str(state["question"]))
     )
     return {"need_retrieval": decision.should_retrieve}
 
 
-direct_generation_prompt = ChatPromptTemplate.from_messages(direct_generate_prompt)
-
+# ----------------------------
+# 2. Direct Answer Generation (No retrieval)
+# ----------------------------
 def generate_direct(state: State):
     output = llm.invoke(
         direct_generation_prompt.format_messages(
@@ -33,13 +36,18 @@ def generate_direct(state: State):
     return {"answer": output.content}
 
 
+# ----------------------------
+# 3. Retrieval
+# ----------------------------
 def retrieve(state: State):
     vector_store = create_embeddings()
     retriever = vector_store.as_retriever(search_kwargs={"k": 4})
     return {"docs": retriever.invoke(state["question"])}
 
 
-is_relevant_prompt = ChatPromptTemplate.from_messages(is_relevant_docs_prompt)
+# ----------------------------
+# 4. Relevance Filter
+# ----------------------------
 relevance_llm = llm.with_structured_output(RelevanceDecision)
 
 def is_relevant(state: State):
@@ -60,8 +68,9 @@ def is_relevant(state: State):
     return {"relevant_docs": relevant_docs}
 
 
-rag_generation_prompt = ChatPromptTemplate.from_messages(context_generation_prompt)
-
+# ----------------------------
+# 5. Generate from Context
+# ----------------------------
 def generate_from_context(state: State):
     # Stuff relevant docs into one block
     context = "\n\n---\n\n".join(
@@ -79,6 +88,25 @@ def generate_from_context(state: State):
     )
     return {"answer": out.content, "context": context}
 
-
+# ----------------------------
+# 6. No Answer/Docs Found
+# ----------------------------
 def no_relevant_docs(state: State):
     return {"answer": "No relevant document found.", "context": ""}
+
+
+# ----------------------------
+# 0. IsSUP verify + revise loop
+# ----------------------------
+issup_llm = llm.with_structured_output(IsSUPDecision)
+
+def is_sup(state: State):
+    decision: IsSUPDecision = issup_llm.invoke(
+        issup_prompt.format(
+            question=state["question"],
+            answer=state.get("answer", ""),
+            context=state.get("context", "")
+        )
+    )
+
+    return {"issup": decision.issup, "evidence": decision.evidence}

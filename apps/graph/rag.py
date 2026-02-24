@@ -7,9 +7,13 @@ from .nodes import (
     retrieve, 
     is_relevant,
     generate_from_context,
-    no_relevant_docs
+    no_relevant_docs,
+    is_sup
     )
 
+# -----------------------------
+# Build graph
+# -----------------------------
 graph = StateGraph(State)
 
 # --------------------
@@ -21,6 +25,7 @@ graph.add_node("retrieve", retrieve)
 graph.add_node("is_relevant", is_relevant)
 graph.add_node("generate_from_context", generate_from_context)
 graph.add_node("no_relevant_docs", no_relevant_docs)
+graph.add_node("is_sup", is_sup)
 
 # --------------------
 # Edges
@@ -44,7 +49,8 @@ graph.add_conditional_edges(
         "no_relevant_docs": "no_relevant_docs"
     },
 )
-graph.add_edge("generate_from_context", END)
+graph.add_edge("generate_from_context", "is_sup")
+graph.add_edge("is_sup", END)
 graph.add_edge("no_relevant_docs", END)
 
 workflow = graph.compile()
