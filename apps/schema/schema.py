@@ -17,6 +17,8 @@ class State(TypedDict):
     issup: Literal["fully_supported", "partially_supported", "no_support"]
     evidence: List[str]
 
+    retries: int
+
 
 class RetrieveDecision(BaseModel):
     should_retrieve: bool = Field(
@@ -30,6 +32,7 @@ class RelevanceDecision(BaseModel):
         ...,
         description="True if the document helps answer the question, else False."
     )
+
 
 class IsSUPDecision(BaseModel):
     issup: Literal["fully_supported", "partially_supported", "no_support"]

@@ -1,15 +1,7 @@
 from langgraph.graph import StateGraph, START, END
 from ..schema.schema import State
-from .routers import (route_after_decide, route_after_relevance)
-from .nodes import (
-    decide_retrieval, 
-    generate_direct, 
-    retrieve, 
-    is_relevant,
-    generate_from_context,
-    no_relevant_docs,
-    is_sup
-    )
+from .routers import *
+from .nodes import *
 
 # -----------------------------
 # Build graph
@@ -26,6 +18,8 @@ graph.add_node("is_relevant", is_relevant)
 graph.add_node("generate_from_context", generate_from_context)
 graph.add_node("no_relevant_docs", no_relevant_docs)
 graph.add_node("is_sup", is_sup)
+graph.add_node("revise_answer", revise_answer)
+graph.add_node("accept_answer", accept_answer)
 
 # --------------------
 # Edges
@@ -49,9 +43,17 @@ graph.add_conditional_edges(
         "no_relevant_docs": "no_relevant_docs"
     },
 )
-graph.add_edge("generate_from_context", "is_sup")
-graph.add_edge("is_sup", END)
 graph.add_edge("no_relevant_docs", END)
+graph.add_edge("generate_from_context", "is_sup")
+graph.add_conditional_edges(
+    "is_sup", route_after_issup,
+    {
+        "accept_answer": "accept_answer",
+        "revise_answer": "revise_answer"
+    }
+)
+graph.add_edge("revise_answer", "is_sup")
+graph.add_edge("accept_answer", END)
 
 workflow = graph.compile()
 

@@ -92,3 +92,28 @@ issup_prompt = ChatPromptTemplate.from_messages(
         ),
     ]
 )
+
+
+revise_prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You are a STRICT reviser.\n\n"
+            "You must output based on the following format:\n\n"
+            "FORMAT (quote-only answer):\n"
+            "- <direct quote from the CONTEXT>\n"
+            "- <direct quote from the CONTEXT>\n\n"
+            "Rules:\n"
+            "- Use ONLY the CONTEXT.\n"
+            "- Do NOT add any new words besides bullet dashes and the quotes themselves.\n"
+            "- Do NOT explain anything.\n"
+            "- Do NOT say 'context', 'not mentioned', 'does not mention', 'not provided', etc.\n"
+        ),
+        (
+            "human",
+            "Question:\n{question}\n\n"
+            "Current Answer:\n{answer}\n\n"
+            "CONTEXT:\n{context}"
+        ),
+    ]
+)

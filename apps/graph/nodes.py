@@ -1,15 +1,9 @@
 from typing import List
 from langchain_core.documents import Document
-from .prompts import (
-    decide_retrieval_prompt, 
-    direct_generation_prompt, 
-    is_relevant_prompt,
-    rag_generation_prompt,
-    issup_prompt
-    )
+from .prompts import *
 from ..model.llm_model import llm
 from ..embeddings.vector_store import create_embeddings
-from ..schema.schema import State, RetrieveDecision, RelevanceDecision, IsSUPDecision
+from ..schema.schema import *
 
 
 # ----------------------------
@@ -96,7 +90,7 @@ def no_relevant_docs(state: State):
 
 
 # ----------------------------
-# 0. IsSUP verify + revise loop
+# 7. IsSUP verify + revise loop
 # ----------------------------
 issup_llm = llm.with_structured_output(IsSUPDecision)
 
@@ -110,3 +104,24 @@ def is_sup(state: State):
     )
 
     return {"issup": decision.issup, "evidence": decision.evidence}
+
+
+# ----------------------------
+# 7.1 Revise answer if partially/not supported
+# ----------------------------
+def revise_answer(state: State):
+    out = llm.invoke(
+        revise_prompt.format_messages(
+            question=state["question"],
+            answer=state.get("answer", ""),
+            context=state.get("context", ""),
+        )
+    )
+    return {
+        "answer": out.content,
+        "retries": state.get("retries", 0) + 1,
+    }
+
+
+def accept_answer(state: State):
+    return {}  # keep answer as-is
