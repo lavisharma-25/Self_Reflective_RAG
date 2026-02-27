@@ -36,7 +36,8 @@ def generate_direct(state: State):
 def retrieve(state: State):
     vector_store = create_embeddings()
     retriever = vector_store.as_retriever(search_kwargs={"k": 4})
-    return {"docs": retriever.invoke(state["question"])}
+    question = state.get("rewrite_question") or state["question"]
+    return {"docs": retriever.invoke(question)}
 
 
 # ----------------------------
@@ -125,3 +126,39 @@ def revise_answer(state: State):
 
 def accept_answer(state: State):
     return {}  # keep answer as-is
+
+
+# ----------------------------
+# 8. IsUSE - Decide whether the generated answer is useful or not
+# ----------------------------
+isuse_llm = llm.with_structured_output(IsUSEDecision)
+
+def is_use(state: State):
+    decision: IsUSEDecision = isuse_llm.invoke(
+        isuse_prompt.format_messages(
+            question=state["question"],
+            answer=state.get("answer", ""),
+        )
+    )
+    return {"isuse": decision.isuse, "use_reason": decision.reason}
+
+
+# ----------------------------
+# 9. Rewrite question if answer not useful
+# ----------------------------
+rewrite_llm = llm.with_structured_output(RewriteDecision)
+
+def rewrite_question(state: State):
+    decision: RewriteDecision = rewrite_llm.invoke(
+        rewrite_for_retrieval_prompt.format_messages(
+            question=state["question"],
+            retrieval_query = state.get("retrieval_query", ""),
+            answer=state.get("answer", "")
+        )
+    )
+
+    return {
+        "retrieval_query": decision.retrieval_query,
+        "rewrite_max_retries": state.get("rewrite_max_retries", 0) + 1,
+    }
+    

@@ -25,3 +25,9 @@ def route_after_issup(state:State) -> Literal["accept_answer", "revise_answer"]:
 
     # otherwise revise again
     return "revise_answer"
+
+
+def route_after_isuse(state: State) -> Literal["useful", "not_useful"]:
+    if state.get("isuse") == "useful":
+        return "useful"
+    return "not_useful"

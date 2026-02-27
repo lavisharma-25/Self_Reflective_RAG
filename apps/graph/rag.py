@@ -19,7 +19,8 @@ graph.add_node("generate_from_context", generate_from_context)
 graph.add_node("no_relevant_docs", no_relevant_docs)
 graph.add_node("is_sup", is_sup)
 graph.add_node("revise_answer", revise_answer)
-graph.add_node("accept_answer", accept_answer)
+graph.add_node("is_use", is_use)
+graph.add_node("rewrite_question", rewrite_question)
 
 # --------------------
 # Edges
@@ -48,12 +49,18 @@ graph.add_edge("generate_from_context", "is_sup")
 graph.add_conditional_edges(
     "is_sup", route_after_issup,
     {
-        "accept_answer": "accept_answer",
+        "accept_answer": "is_use",
         "revise_answer": "revise_answer"
     }
 )
 graph.add_edge("revise_answer", "is_sup")
-graph.add_edge("accept_answer", END)
+graph.add_conditional_edges("is_use", route_after_isuse,
+    {
+        "useful": END,
+        "not_useful": "rewrite_question"
+    }
+)
+graph.add_edge("rewrite_question", "retrieve")
 
 workflow = graph.compile()
 

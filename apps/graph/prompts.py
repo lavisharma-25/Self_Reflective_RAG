@@ -117,3 +117,55 @@ revise_prompt = ChatPromptTemplate.from_messages(
         ),
     ]
 )
+
+
+isuse_prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You are judging USEFULNESS of the ANSWER for the QUESTION.\n\n"
+            "Goal:\n"
+            "- Decide if the answer actually addresses what the user asked.\n\n"
+            "Return JSON with keys: isuse, reason.\n"
+            "isuse must be one of: useful, not_useful.\n\n"
+            "Rules:\n"
+            "- useful: The answer directly answers the question or provides the requested specific info.\n"
+            "- not_useful: The answer is generic, off-topic, or only gives related background without answering.\n"
+            "- Do NOT use outside knowledge.\n"
+            "- Do NOT re-check grounding (IsSUP already did that). Only check: 'Did we answer the question?'\n"
+            "- Keep reason to 1 short line."
+        ),
+        (
+            "human",
+            "Question:\n{question}\n\nAnswer:\n{answer}"
+        ),
+    ]
+)
+
+
+rewrite_for_retrieval_prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "Rewrite the user's QUESTION into a query optimized for vector retrieval over INTERNAL company PDFs.\n\n"
+            "Rules:\n"
+            "- Keep it short (6–16 words).\n"
+            "- Preserve key entities (e.g., NexaAI, plan names).\n"
+            "- Add 2–5 high-signal keywords that likely appear in policy/pricing docs.\n"
+            "- Remove filler words.\n"
+            "- Do NOT answer the question.\n"
+            "- Output JSON with key: retrieval_query\n\n"
+            "Examples:\n"
+            "Q: 'Do NexaAI plans include a free trial?'\n"
+            "-> {{'retrieval_query': 'NexaAI free trial duration trial period plans'}}\n\n"
+            "Q: 'What is NexaAI refund policy?'\n"
+            "-> {{'retrieval_query': 'NexaAI refund policy cancellation refund timeline charges'}}"
+        ),
+        (
+            "human",
+            "QUESTION:\n{question}\n\n"
+            "Previous retrieval query:\n{retrieval_query}\n\n"
+            "Answer (if any):\n{answer}"
+        ),
+    ]
+)
