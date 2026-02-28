@@ -16,11 +16,11 @@ def route_after_relevance(state: State) -> Literal["generate_from_context", "no_
     if state.get("relevant_docs") and len(state["relevant_docs"]) > 0:
         logger.info(f"Routing to 'generate_from_context' - found {len(state['relevant_docs'])} relevant docs")
         return "generate_from_context"
-    logger.info(f"Routing to 'no_relevant_docs' - no relevant docs found")
+    logger.info(f"Routing to 'rewrite_query' - no relevant docs found")
     return "no_relevant_docs"
 
 
-MAX_RETRIES = 5
+MAX_RETRIES = 2
 
 def route_after_issup(state:State) -> Literal["accept_answer", "revise_answer"]:
     if state.get("issup") == "fully_supported":
@@ -43,3 +43,12 @@ def route_after_isuse(state: State) -> Literal["useful", "not_useful"]:
         return "useful"
     logger.info(f"Routing to 'not_useful' - isuse: {state.get('isuse')}")
     return "not_useful"
+
+
+def route_after_rewrite(state: State) -> Literal["web_search", "no_relevant_docs"]:
+    if state.get("web_max_retries", 0) >= MAX_RETRIES:
+        logger.info(f"Routing to 'no_relevant_docs' - max web search retries ({MAX_RETRIES}) reached")
+        return "no_relevant_docs"
+        
+    logger.info(f"Routing to 'web_search' - web search retries so far: {state.get('web_max_retries', 0)}")
+    return "web_search"

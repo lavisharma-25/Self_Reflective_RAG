@@ -2,3 +2,435 @@
 2026-03-01 00:33:21,619 | INFO | app_logger | Retrieval decision: False
 2026-03-01 00:33:21,620 | INFO | app_logger | Generating direct answer for question: What is machine learning?
 2026-03-01 00:33:25,493 | INFO | app_logger | Direct answer generated: Machine learning is a field of artificial intelligence that focuses on enabling computer systems to ...
+2026-03-01 00:58:12,056 | INFO | app_logger | Deciding retrieval for question: What is machine learning?
+2026-03-01 00:58:14,847 | INFO | app_logger | Retrieval decision: False
+2026-03-01 00:58:14,848 | INFO | app_logger | Routing to 'generate_direct' - need_retrieval is False
+2026-03-01 00:58:14,849 | INFO | app_logger | Generating direct answer for question: What is machine learning?
+2026-03-01 00:58:18,077 | INFO | app_logger | Direct answer generated: Machine learning is a field of artificial intelligence that allows computer systems to learn from da...
+2026-03-01 00:58:46,935 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 00:58:49,597 | INFO | app_logger | Retrieval decision: True
+2026-03-01 00:58:49,598 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 00:58:50,594 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 00:58:51,695 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 00:58:51,698 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 00:58:53,440 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 00:58:54,797 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 00:58:56,239 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 00:58:57,436 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 00:58:57,436 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 00:58:57,437 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 00:58:57,438 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:08:08,052 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:08:10,550 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:08:10,550 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:08:11,497 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:08:12,038 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:08:12,041 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:08:14,030 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:08:15,099 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:08:16,308 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:08:17,747 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:08:17,747 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:08:17,748 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:08:17,748 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:11:41,271 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:11:43,826 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:11:43,826 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:11:44,748 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:11:45,667 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:11:45,669 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:11:47,824 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:11:48,983 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:11:50,224 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:11:51,470 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:11:51,470 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:11:51,470 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:11:51,471 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:10,702 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:12,793 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:14:12,793 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:14:13,664 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:14,258 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:14:14,261 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:16,757 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:14:18,223 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:14:19,412 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:14:20,942 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:14:20,943 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:14:20,943 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:14:20,944 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:22,542 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:14:22,542 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:14:25,584 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:14:25,584 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:27,213 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:14:28,622 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:14:30,367 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:14:31,771 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:14:33,107 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:14:33,108 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:14:33,108 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:14:33,109 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:34,703 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:14:34,704 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:14:36,318 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:14:36,319 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:38,491 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:14:39,992 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:14:41,868 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:14:43,343 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:14:45,263 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:14:45,263 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:14:45,264 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:14:45,265 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:46,233 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:14:46,234 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:14:47,661 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:14:47,662 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:14:50,062 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:14:51,791 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:14:53,591 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:14:55,111 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:25:49,176 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:25:51,244 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:25:51,245 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:25:52,278 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:25:53,156 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:25:53,158 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:25:55,032 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:25:56,208 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:25:57,413 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:25:58,852 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:25:58,852 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:25:58,853 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:25:58,853 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:25:59,976 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:25:59,976 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:25:59,977 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:26:01,442 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:26:01,443 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:02,870 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:26:04,493 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:26:05,574 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:26:06,753 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:26:08,267 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:26:08,268 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:26:08,268 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:26:08,269 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:09,383 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:26:09,384 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:26:09,384 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:26:10,708 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:26:10,708 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:12,428 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:26:14,052 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:26:15,398 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:26:16,730 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:26:17,753 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:26:17,753 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:26:17,754 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:26:17,754 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:18,692 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:26:18,693 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:26:18,693 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:26:20,297 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:26:20,298 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:21,573 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:26:23,277 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:26:24,507 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:26:25,607 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:26:26,654 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:26:26,654 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:26:26,655 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:26:26,656 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:27,908 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:26:27,908 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:26:27,909 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:26:29,397 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:26:29,398 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:31,972 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:26:33,572 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:26:34,854 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:26:36,607 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:26:38,371 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:26:38,372 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:26:38,372 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:26:38,372 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:39,923 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:26:39,923 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:26:39,923 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:26:41,571 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:26:41,572 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:43,087 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:26:45,371 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:26:46,973 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:26:48,772 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:26:49,742 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:26:49,742 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:26:49,742 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:26:49,743 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:51,491 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:26:51,492 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:26:51,493 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:26:53,092 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:26:53,093 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:26:55,491 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:26:58,098 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:26:59,161 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:27:00,454 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:27:02,257 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:27:02,257 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:27:02,258 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:27:02,258 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:27:03,326 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:27:03,326 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:27:03,327 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:27:04,803 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:27:04,804 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:27:06,783 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:27:08,242 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:27:09,862 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:27:11,710 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:27:13,246 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:27:13,247 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:27:13,247 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:27:13,248 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:27:14,871 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:27:14,871 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:27:14,872 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:27:16,451 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:27:16,451 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:27:18,051 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:30:53,251 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:30:55,489 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:30:55,490 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:30:56,379 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:30:57,159 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:30:57,161 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:30:58,750 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:31:00,619 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:31:01,888 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:31:03,569 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:31:03,570 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:31:03,570 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:31:03,570 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:31:04,448 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:31:04,449 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:31:04,450 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:33:37,978 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:33:40,449 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:33:40,449 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:33:41,346 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:33:42,283 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:33:42,286 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:33:43,622 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:33:44,762 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:33:46,259 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:33:48,061 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:33:48,062 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:33:48,062 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:33:48,063 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:33:49,669 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:33:49,669 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:33:49,670 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:33:50,807 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:33:50,808 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:33:52,713 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:33:54,794 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:33:56,175 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:33:57,462 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:33:59,166 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:33:59,166 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:33:59,166 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:33:59,167 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:00,445 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:34:00,446 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:34:00,447 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:34:02,020 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:34:02,021 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:05,178 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:34:09,406 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:34:11,447 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:34:13,408 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:34:15,330 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:34:15,331 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:34:15,331 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:34:15,332 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:17,086 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:34:17,086 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:34:17,087 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:34:18,690 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:34:18,692 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:20,609 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:34:22,006 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:34:23,425 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:34:25,086 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:34:26,527 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:34:26,527 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:34:26,528 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:34:26,528 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:28,285 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:34:28,285 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:34:28,286 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:34:30,855 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:34:30,856 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:33,105 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:34:35,988 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:34:38,534 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:34:40,300 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:34:41,762 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:34:41,763 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:34:41,763 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:34:41,764 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:43,222 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:34:43,223 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:34:43,223 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:34:44,777 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:34:44,778 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:47,096 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:34:49,274 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:34:50,687 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:34:52,114 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:34:53,245 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:34:53,245 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:34:53,245 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:34:53,246 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:54,413 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:34:54,414 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:34:54,415 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:34:56,195 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:34:56,196 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:34:57,917 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:34:59,486 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:35:01,085 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:35:02,868 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:35:04,128 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:35:04,128 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:35:04,129 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:35:04,130 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:05,217 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:35:05,218 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:35:05,218 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:35:06,978 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:35:06,979 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:09,097 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:35:11,104 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:35:13,302 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:35:15,718 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:35:17,964 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:35:17,964 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:35:17,964 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:35:17,965 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:20,112 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:35:20,113 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:35:20,114 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:35:22,110 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:35:22,110 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:24,518 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:35:26,270 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:35:27,967 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:35:29,106 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:35:31,289 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:35:31,290 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:35:31,290 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:35:31,291 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:32,289 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:35:32,289 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:35:32,290 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:35:34,055 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:35:34,056 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:35,463 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:35:37,012 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:35:38,200 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:35:40,137 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:35:41,769 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:35:41,769 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:35:41,770 | INFO | app_logger | Routing to 'no_relevant_docs' - no relevant docs found
+2026-03-01 01:35:41,771 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:43,103 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:35:43,103 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:35:43,104 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:35:52,191 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:54,366 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:35:54,366 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:35:55,563 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:56,528 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:35:56,530 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:35:59,005 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:36:00,135 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:36:01,404 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:36:03,074 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:36:03,074 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:36:03,075 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-01 01:36:03,075 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:04,923 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:36:04,924 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:36:04,924 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:36:06,525 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:36:06,526 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:08,123 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:36:09,939 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:36:11,763 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:36:12,985 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:36:14,626 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:36:14,627 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:36:14,627 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-01 01:36:14,628 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:15,523 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:36:15,523 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:36:15,523 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:36:16,987 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:36:16,987 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:18,845 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:36:20,894 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:36:22,217 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:36:23,806 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:36:25,190 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:36:25,190 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:36:25,190 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-01 01:36:25,191 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:26,325 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:36:26,325 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:36:26,326 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:36:27,804 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:36:27,805 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:30,120 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:36:32,125 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:36:33,939 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:36:36,096 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:36:37,801 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:36:37,801 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:36:37,802 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-01 01:36:37,802 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:36:39,750 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:36:39,750 | INFO | app_logger | Routing to 'web_search' - rewrite retries so far: 0
+2026-03-01 01:36:39,751 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:48:41,263 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-01 01:48:43,306 | INFO | app_logger | Retrieval decision: True
+2026-03-01 01:48:43,307 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-01 01:48:44,208 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-01 01:48:44,871 | INFO | app_logger | Retrieved 4 documents
+2026-03-01 01:48:44,873 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:48:47,231 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:48:48,831 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:48:49,954 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:48:51,263 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:48:51,263 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-01 01:48:51,263 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-01 01:48:51,264 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:48:52,672 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:48:52,672 | INFO | app_logger | Routing to 'web_search' - web search retries so far: 1
+2026-03-01 01:48:52,673 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-01 01:48:57,954 | INFO | app_logger | Web search returned 5 results
+2026-03-01 01:48:57,955 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-01 01:49:01,797 | INFO | app_logger | Document 1 relevance: False
+2026-03-01 01:49:03,230 | INFO | app_logger | Document 2 relevance: False
+2026-03-01 01:49:04,991 | INFO | app_logger | Document 3 relevance: False
+2026-03-01 01:49:06,954 | INFO | app_logger | Document 4 relevance: False
+2026-03-01 01:49:08,031 | INFO | app_logger | Document 5 relevance: False
+2026-03-01 01:49:08,031 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-01 01:49:08,031 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-01 01:49:08,032 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-01 01:49:09,285 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-01 01:49:09,285 | INFO | app_logger | Routing to 'no_relevant_docs' - max web search retries (2) reached
+2026-03-01 01:49:09,286 | INFO | app_logger | No relevant documents found. Ending workflow with failure answer.

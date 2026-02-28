@@ -61,7 +61,4 @@ class RewriteDecision(BaseModel):
 
 
 class WebQuery(BaseModel):
-    web_query: str = Field(
-        ...,
-        description="Rewritten query optimized for web search to find relevant information when internal docs are insufficient."
-    )
+    web_query: str

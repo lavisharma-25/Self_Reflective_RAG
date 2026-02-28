@@ -115,18 +115,21 @@ def generate_from_context(state: State):
 # ----------------------------
 # 6. Rewrite query
 # ----------------------------
-rewrite_llm = llm.with_structured_output(WebQuery)
+rewrite_query_llm = llm.with_structured_output(WebQuery)
 
 def rewrite_query(state: State):
     question = state["question"]
     logger.info(f"Rewriting question: {question}")
     
-    out : WebQuery = rewrite_llm.invoke(
+    out: WebQuery = rewrite_query_llm.invoke(
         rewrite_prompt.format_messages(question=question)
     )
     
     logger.info(f"Rewritten query: {out.web_query}")
-    return {"web_query": out.web_query}
+    return {
+        "web_query": out.web_query,
+        "web_max_retries": state.get("web_max_retries", 0) + 1,
+    }
 
 
 # ----------------------------
@@ -245,3 +248,7 @@ def rewrite_question(state: State):
         "rewrite_max_retries": state.get("rewrite_max_retries", 0) + 1,
     }
     
+
+def no_relevant_docs(state: State):
+    logger.info("No relevant documents found. Ending workflow with failure answer.")
+    return {"answer": "I'm sorry, I couldn't find relevant information to answer your question."}
