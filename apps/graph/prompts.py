@@ -169,3 +169,19 @@ rewrite_for_retrieval_prompt = ChatPromptTemplate.from_messages(
         ),
     ]
 )
+
+
+rewrite_prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "Rewrite the user question into a web search query composed of keywords.\n"
+            "Rules:\n"
+            "- Keep it short (6–14 words).\n"
+            "- If the question implies recency, add (last 30 days).\n"
+            "- Do NOT answer the question.\n"
+            "- Return JSON with a single key: query",
+        ),
+        ("human", "Question: {question}"),
+    ]
+)

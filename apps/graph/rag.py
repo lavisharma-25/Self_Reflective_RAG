@@ -16,7 +16,8 @@ graph.add_node("generate_direct", generate_direct)
 graph.add_node("retrieve", retrieve)
 graph.add_node("is_relevant", is_relevant)
 graph.add_node("generate_from_context", generate_from_context)
-graph.add_node("no_relevant_docs", no_relevant_docs)
+graph.add_node("rewrite_query", rewrite_query)
+graph.add_node("web_search", web_search)
 graph.add_node("is_sup", is_sup)
 graph.add_node("revise_answer", revise_answer)
 graph.add_node("is_use", is_use)
@@ -41,10 +42,11 @@ graph.add_conditional_edges(
     "is_relevant", route_after_relevance,
     {
         "generate_from_context": "generate_from_context",
-        "no_relevant_docs": "no_relevant_docs"
+        "no_relevant_docs": "rewrite_query"
     },
 )
-graph.add_edge("no_relevant_docs", END)
+graph.add_edge("rewrite_query", "web_search")
+graph.add_edge("web_search", "is_relevant")
 graph.add_edge("generate_from_context", "is_sup")
 graph.add_conditional_edges(
     "is_sup", route_after_issup,

@@ -4,9 +4,10 @@ from apps.graph.rag import workflow
 # Run the graph
 # -----------------------------
 initial_state = {
-    "question": "Describe Business Analytics & Reporting of Nexa AI in detail.",
-    # "retrieval_query": "What is the refund policy of NexaAI",  # ✅ important
-    "rewrite_max_retries": 0,                                        # ✅ important
+    # "question": "What is Tmotions male employee safety policy?",
+    # "retrieval_query": "What is the refund policy of NexaAI",
+    "question": "What is machine learning?",
+    "rewrite_max_retries": 0,
     "docs": [],
     "relevant_docs": [],
     "context": "",

@@ -25,6 +25,9 @@ class State(TypedDict):
     retrieval_query: str
     rewrite_max_retries: int
 
+    web_query: str
+    web_max_retries: int
+
 
 class RetrieveDecision(BaseModel):
     should_retrieve: bool = Field(
@@ -54,4 +57,11 @@ class RewriteDecision(BaseModel):
     retrieval_query: str = Field(
         ...,
         description="Rewritten query optimized for vector retrieval against internal company PDFs."
+    )
+
+
+class WebQuery(BaseModel):
+    web_query: str = Field(
+        ...,
+        description="Rewritten query optimized for web search to find relevant information when internal docs are insufficient."
     )

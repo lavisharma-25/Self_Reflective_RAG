@@ -1,0 +1,4 @@
+2026-03-01 00:33:18,915 | INFO | app_logger | Deciding retrieval for question: What is machine learning?
+2026-03-01 00:33:21,619 | INFO | app_logger | Retrieval decision: False
+2026-03-01 00:33:21,620 | INFO | app_logger | Generating direct answer for question: What is machine learning?
+2026-03-01 00:33:25,493 | INFO | app_logger | Direct answer generated: Machine learning is a field of artificial intelligence that focuses on enabling computer systems to ...
