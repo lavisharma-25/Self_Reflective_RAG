@@ -17,6 +17,17 @@ class State(TypedDict):
     issup: Literal["fully_supported", "partially_supported", "no_support"]
     evidence: List[str]
 
+    retries: int
+
+    isuse: Literal["useful", "not_useful"]
+    use_reason: str
+
+    retrieval_query: str
+    rewrite_max_retries: int
+
+    web_query: str
+    web_max_retries: int
+
 
 class RetrieveDecision(BaseModel):
     should_retrieve: bool = Field(
@@ -31,6 +42,23 @@ class RelevanceDecision(BaseModel):
         description="True if the document helps answer the question, else False."
     )
 
+
 class IsSUPDecision(BaseModel):
     issup: Literal["fully_supported", "partially_supported", "no_support"]
     evidence: List[str] = Field(default_factory=list)
+
+
+class IsUSEDecision(BaseModel):
+    isuse: Literal["useful", "not_useful"]
+    reason: str = Field(..., description="Short reason in 1 line.")
+
+
+class RewriteDecision(BaseModel):
+    retrieval_query: str = Field(
+        ...,
+        description="Rewritten query optimized for vector retrieval against internal company PDFs."
+    )
+
+
+class WebQuery(BaseModel):
+    web_query: str
