@@ -1,14 +1,13 @@
-import uvicorn
-from fastapi import FastAPI
+from fastapi import APIRouter
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from app.embeddings.vector_store import create_embeddings
 
-app = FastAPI()
+router = APIRouter(prefix="/document", tags=["Documents"])
 
-@app.post("/build-embeddings")
-def build_embeddings():
+@router.post("/load-documents")
+async def load_documents():
 
     docs = (
         PyPDFLoader("app/data/Company_Policies.pdf").load()
@@ -27,11 +26,3 @@ def build_embeddings():
 
     return {"message": "Embeddings built successfully"}
 
-
-@app.post("/run")
-def initiate_self_rag():
-    "Todo"
-    return None
-
-if __name__ == "__main__":
-    uvicorn.run("apps:app", host="0.0.0.0", port=8000, reload=True)
