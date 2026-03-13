@@ -1,8 +1,9 @@
 import uvicorn
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from apps.embeddings.vector_store import create_embeddings
+
+from app.embeddings.vector_store import create_embeddings
 
 app = FastAPI()
 

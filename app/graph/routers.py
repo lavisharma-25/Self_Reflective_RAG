@@ -1,5 +1,6 @@
-from ..schema.schema import State
 from typing import Literal
+
+from app.models.state import State
 from logs import setup_logger
 
 logger = setup_logger()

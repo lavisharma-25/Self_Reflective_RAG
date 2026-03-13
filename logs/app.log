@@ -434,3 +434,33 @@
 2026-03-01 01:49:09,285 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
 2026-03-01 01:49:09,285 | INFO | app_logger | Routing to 'no_relevant_docs' - max web search retries (2) reached
 2026-03-01 01:49:09,286 | INFO | app_logger | No relevant documents found. Ending workflow with failure answer.
+2026-03-13 13:09:08,030 | INFO | app_logger | Deciding retrieval for question: What is Tmotions male employee safety policy?
+2026-03-13 13:09:11,529 | INFO | app_logger | Retrieval decision: True
+2026-03-13 13:09:11,529 | INFO | app_logger | Routing to 'retrieve' - need_retrieval is True
+2026-03-13 13:09:12,499 | INFO | app_logger | Loading existing FAISS index...
+2026-03-13 13:09:12,519 | INFO | app_logger | Retrieving documents for question: What is Tmotions male employee safety policy?
+2026-03-13 13:09:13,301 | INFO | app_logger | Retrieved 4 documents
+2026-03-13 13:09:13,312 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-13 13:09:15,388 | INFO | app_logger | Document 1 relevance: False
+2026-03-13 13:09:17,298 | INFO | app_logger | Document 2 relevance: False
+2026-03-13 13:09:19,397 | INFO | app_logger | Document 3 relevance: False
+2026-03-13 13:09:22,778 | INFO | app_logger | Document 4 relevance: False
+2026-03-13 13:09:22,778 | INFO | app_logger | Found 0 relevant documents out of 4
+2026-03-13 13:09:22,778 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-13 13:09:22,778 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-13 13:09:24,656 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-13 13:09:24,656 | INFO | app_logger | Routing to 'web_search' - web search retries so far: 1
+2026-03-13 13:09:24,656 | INFO | app_logger | Performing web search with query: Tmotions male employee safety policy
+2026-03-13 13:09:27,642 | INFO | app_logger | Web search returned 5 results
+2026-03-13 13:09:27,643 | INFO | app_logger | Checking relevance for question: What is Tmotions male employee safety policy?
+2026-03-13 13:09:33,638 | INFO | app_logger | Document 1 relevance: False
+2026-03-13 13:09:35,332 | INFO | app_logger | Document 2 relevance: False
+2026-03-13 13:09:37,116 | INFO | app_logger | Document 3 relevance: False
+2026-03-13 13:09:39,356 | INFO | app_logger | Document 4 relevance: False
+2026-03-13 13:09:41,350 | INFO | app_logger | Document 5 relevance: False
+2026-03-13 13:09:41,352 | INFO | app_logger | Found 0 relevant documents out of 5
+2026-03-13 13:09:41,352 | INFO | app_logger | Routing to 'rewrite_query' - no relevant docs found
+2026-03-13 13:09:41,352 | INFO | app_logger | Rewriting question: What is Tmotions male employee safety policy?
+2026-03-13 13:09:43,821 | INFO | app_logger | Rewritten query: Tmotions male employee safety policy
+2026-03-13 13:09:43,821 | INFO | app_logger | Routing to 'no_relevant_docs' - max web search retries (2) reached
+2026-03-13 13:09:43,823 | INFO | app_logger | No relevant documents found. Ending workflow with failure answer.

@@ -1,7 +1,9 @@
 from langgraph.graph import StateGraph, START, END
-from ..schema.schema import State
-from .routers import *
-from .nodes import *
+
+from app.graph.nodes import *
+from app.graph.routers import *
+from app.models.state import State
+
 
 # -----------------------------
 # Build graph

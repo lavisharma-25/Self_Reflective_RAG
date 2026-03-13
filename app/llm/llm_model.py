@@ -1,5 +1,6 @@
 from langchain_google_genai import ChatGoogleGenerativeAI
-from apps.config import credentials, gemini_model, location
+
+from app.config import credentials, gemini_model, location
 
 llm = ChatGoogleGenerativeAI(
     model=gemini_model,

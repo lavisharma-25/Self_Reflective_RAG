@@ -1,4 +1,4 @@
-from apps.graph.rag import workflow
+from app.graph.rag import workflow
 
 # -----------------------------
 # Run the graph
