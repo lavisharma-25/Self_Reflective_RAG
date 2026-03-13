@@ -27,17 +27,41 @@ direct_generation_prompt = ChatPromptTemplate.from_messages([
 ])
 
 
+context_prompt = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        "You are an AI assistant that reads documents and extracts their core context.\n"
+        "Return a concise contextual summary based only on the provided documents.\n\n"
+        "Rules:\n"
+        "- The summary must be between 5 and 10 lines.\n"
+        "- Focus on the main topic, important concepts, and key information.\n"
+        "- Do not include headings, explanations, or extra commentary.\n"
+        "- Output must be plain text suitable for saving in a .txt file."
+    ),
+    (
+        "human",
+        "Documents:\n{documents}\n\n"
+        "Generate a concise contextual summary (5-10 lines)."
+    ),
+])
+
+
 is_relevant_prompt = ChatPromptTemplate.from_messages([
     (
         "system",
         "You are judging document relevance.\n"
         "Return JSON that matches this schema:\n"
         "{{'is_relevant': boolean}}\n\n"
-        "A document is relevant if it contains information useful for answering the question."
+        "A document is relevant if:\n"
+        "- It contains information useful for answering the question, AND\n"
+        "- It matches or supports the provided context.\n"
     ),
     (
         "human",
-        "Question:\n{question}\n\nDocument:\n{document}"
+        "Question:\n{question}\n\n"
+        "Context:\n{context}\n\n"
+        "Document:\n{document}\n\n"
+        "Determine whether the document is relevant."
     ),
 ])
 
@@ -169,6 +193,19 @@ rewrite_for_retrieval_prompt = ChatPromptTemplate.from_messages(
         ),
     ]
 )
+
+
+web_answer_prompt = ChatPromptTemplate.from_messages([
+    (
+        "system",
+        "You are a helpful assistant. Use the provided web search context to answer the question."
+        "If the answer is not in the context, say you don't know."
+    ),
+    (
+        "human",
+        "Question:\n{question}\n\nWeb Search Results:\n{context}"
+    ),
+])
 
 
 rewrite_prompt = ChatPromptTemplate.from_messages(

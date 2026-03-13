@@ -55,7 +55,7 @@ graph.add_conditional_edges(
         "no_relevant_docs": "no_relevant_docs"
     }
 )
-graph.add_edge("web_search", "is_relevant")
+graph.add_edge("web_search", "is_use")
 graph.add_edge("generate_from_context", "is_sup")
 graph.add_conditional_edges(
     "is_sup", route_after_issup,

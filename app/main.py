@@ -4,7 +4,7 @@ from app.graph.rag import workflow
 # Run the graph
 # -----------------------------
 initial_state = {
-    "question": "What is Tmotions male employee safety policy?",
+    "question": "Where is IBM?",
     # "retrieval_query": "What is the refund policy of NexaAI",
     # "question": "What is machine learning?",
     "rewrite_max_retries": 0,

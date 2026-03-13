@@ -1,4 +1,5 @@
 from typing import List
+from pathlib import Path
 from langchain_core.documents import Document
 from langchain_community.tools.tavily_search import TavilySearchResults
 
@@ -61,6 +62,14 @@ def retrieve(state: State):
 
 
 # ----------------------------
+# 3. Load Context
+# ----------------------------
+def load_context():
+    context_path = Path("app/data/context.txt")
+    return context_path.read_text(encoding="utf-8")
+
+
+# ----------------------------
 # 4. Relevance Filter
 # ----------------------------
 relevance_llm = llm.with_structured_output(RelevanceDecision)
@@ -68,13 +77,16 @@ relevance_llm = llm.with_structured_output(RelevanceDecision)
 def is_relevant(state: State):
     relevant_docs: List[Document] = []
     question = state["question"]
+    doc_context = load_context()
+    
     logger.info(f"Checking relevance for question: {question}")
 
     for i, doc in enumerate(state["docs"]):
         decision: RelevanceDecision = relevance_llm.invoke(
             is_relevant_prompt.format_messages(
                 question=question,
-                document=doc.page_content
+                document=doc.page_content,
+                context=doc_context
             )
         )
 
@@ -140,26 +152,29 @@ def rewrite_query(state: State):
 tavily = TavilySearchResults(max_results=5)
 
 def web_search(state: State):
-    q = state.get("web_query") or state["question"]
-    logger.info(f"Performing web search with query: {q}")
+    question = state.get("web_query") or state["question"]
+    logger.info(f"Performing web search with query: {question}")
     
-    results = tavily.invoke({"query": q})
+    results = tavily.invoke({"query": question})
 
     docs = []
     for r in results or []:
-        title = r.get("title", "")
-        url = r.get("url", "")
+
         content = r.get("content", "") or r.get("snippet", "")
-        text = f"TITLE: {title}\nURL: {url}\nCONTENT:\n{content}"
-        docs.append(
-            Document(
-                page_content=text,
-                metadata={"source": "web", "url": url, "title": title},
-            )
-        )
+        docs.append(content)
 
     logger.info(f"Web search returned {len(docs)} results")
-    return {"docs": docs}
+
+    context = "\n\n".join(docs)
+
+    response = llm.invoke(
+        web_answer_prompt.format_messages(
+            question=question,
+            context=context
+        )
+    )
+
+    return {"answer": response.content}
 
 
 # ----------------------------

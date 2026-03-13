@@ -1,13 +1,43 @@
 import os
 import faiss
+from pathlib import Path
 from langchain_community.vectorstores import FAISS
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.docstore.in_memory import InMemoryDocstore
 
+from app.graph.prompts import context_prompt
+from app.llm.llm_model import llm
 from app.config import gemini_api_key, embedding_model
 from logs import setup_logger
 
 logger = setup_logger()
+
+
+def generate_context_for_doc():
+    
+    DATA_DIR = Path("app/data")
+
+    docs = []
+    for file in DATA_DIR.glob("*.pdf"):
+        loader = PyPDFLoader(str(file))
+        docs.extend(loader.load())
+    
+    # Combine all document text
+    documents_text = "\n\n".join([doc.page_content for doc in docs])
+
+    response = llm.invoke(
+        context_prompt.format_messages(
+            documents=documents_text
+        )
+    )
+
+    # Save output
+    output_file = DATA_DIR / "context.txt"
+    with open(output_file, "w", encoding="utf-8") as f:
+        f.write(response.content)
+
+    return response.content
 
 
 def create_embeddings():
@@ -42,6 +72,8 @@ def create_embeddings():
     )
 
     vector_store.save_local(index_path)
+
+    generate_context_for_doc()
 
     return vector_store
 
