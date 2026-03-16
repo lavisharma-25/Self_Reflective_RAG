@@ -8,18 +8,26 @@ router = APIRouter(prefix="/chat", tags=["Chat"])
 
 class ChatRequest(BaseModel):
     question: str
+    session_id: str
 
+
+chat_sessions = {}
 
 @router.post("/run")
-def initiate_self_rag(payload: ChatRequest):
+def initiate_self_rag(request: ChatRequest):
 
-    initial_state = {
-        "question": payload.question
+    session_id = request.session_id
+
+    if session_id not in chat_sessions:
+        chat_sessions[session_id] = []
+
+    state = {
+        "question": request.question,
+        "chat_history": chat_sessions[session_id],
     }
 
-    result = workflow.invoke(
-        initial_state,
-        config={"recursion_limit": 80}
-    )
+    result = workflow.invoke(state)
+
+    chat_sessions[session_id] = result["chat_history"][-20:]
 
     return {"response": result}

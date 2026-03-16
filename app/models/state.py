@@ -1,5 +1,7 @@
 from typing import List, TypedDict, Literal
 from langchain_core.documents import Document
+from langchain_core.messages import BaseMessage
+
 
 # Graph State
 class State(TypedDict):
@@ -26,3 +28,5 @@ class State(TypedDict):
 
     web_query: str
     web_max_retries: int
+
+    chat_history: List[BaseMessage]

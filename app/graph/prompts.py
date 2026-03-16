@@ -1,9 +1,10 @@
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 decide_retrieval_prompt = ChatPromptTemplate.from_messages([
     (
         "system",
         "You decide whether retrieval is needed.\n"
+         "Use the conversation history to understand follow-up questions.\n"
         "Return JSON that matches this schema:\n"
         "{{'should_retrieve': boolean}}\n\n"
         "Guidelines:\n"
@@ -11,6 +12,7 @@ decide_retrieval_prompt = ChatPromptTemplate.from_messages([
         "- should_retrieve=False for general explanations, definitions, or reasoning that doesn't need sources.\n"
         "- If unsure, choose True."
     ),
+    MessagesPlaceholder(variable_name="chat_history"),
     ("human", "Question: {question}"),
 ])
 
@@ -20,10 +22,15 @@ direct_generation_prompt = ChatPromptTemplate.from_messages([
         "system",
         "Answer the question using only your general knowledge.\n"
         "Do NOT assume access to external documents.\n"
+        "Use the conversation history to understand follow-up questions.\n"
         "If you are unsure or the answer requires specific sources, say:\n"
         "'I don't know based on my general knowledge.'"
     ),
-    ("human", "{question}"),
+    MessagesPlaceholder(variable_name="chat_history"),
+    (
+        "human",
+        "Question:\n{question}"
+    ),
 ])
 
 

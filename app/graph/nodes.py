@@ -2,6 +2,7 @@ from typing import List
 from pathlib import Path
 from langchain_core.documents import Document
 from langchain_community.tools.tavily_search import TavilySearchResults
+from langchain_core.messages import HumanMessage, AIMessage
 
 from app.models.schema import *
 from app.models.state import State
@@ -20,9 +21,14 @@ should_retrieve_llm = llm.with_structured_output(RetrieveDecision)
 def decide_retrieval(state: "State"):
     question = str(state["question"])
     logger.info(f"Deciding retrieval for question: {question}")
+
+    history = state.get("chat_history", [])
     
     decision: RetrieveDecision = should_retrieve_llm.invoke(
-        decide_retrieval_prompt.format_messages(question=question)
+        decide_retrieval_prompt.format_messages(
+            question=question,
+            chat_history=history
+        )
     )
     
     logger.info(f"Retrieval decision: {decision.should_retrieve}")
@@ -35,10 +41,13 @@ def decide_retrieval(state: "State"):
 def generate_direct(state: State):
     question = state["question"]
     logger.info(f"Generating direct answer for question: {question}")
+
+    history = state.get("chat_history", [])
     
     output = llm.invoke(
         direct_generation_prompt.format_messages(
-            question=question
+            question=question,
+            chat_history=history
         )
     )
     
@@ -269,3 +278,21 @@ def rewrite_question(state: State):
 def no_relevant_docs(state: State):
     logger.info("No relevant documents found. Ending workflow with failure answer.")
     return {"answer": "I'm sorry, I couldn't find relevant information to answer your question."}
+
+
+# ----------------------------
+# Chat History Update
+# ----------------------------
+from langchain_core.messages import HumanMessage, AIMessage
+
+def update_history(state: State):
+
+    history = state.get("chat_history", [])
+
+    history.append(HumanMessage(content=state["question"]))
+    history.append(AIMessage(content=state["answer"]))
+
+    # keep last 20 messages
+    history = history[-20:]
+
+    return {"chat_history": history}
