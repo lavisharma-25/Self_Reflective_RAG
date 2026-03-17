@@ -97,31 +97,44 @@ Workflow visualization: `workflow.png`
 ## ⚙️ Installation
 
 ### 1️⃣ Clone the repository
+```
 git clone https://github.com/lavisharma-25/Self_Reflective_RAG.git
 cd your-repo
+```
 
 ### 2️⃣ Install uv (if not already installed)
+```
 pip install uv
+```
 
 ### 3️⃣ Initialize project environment
+```
 uv init       # Creates virtual environment and sets up project
 uv sync       # Installs all dependencies automatically
+```
 
 ### 4️⃣ Activate virtual environment
 #### Linux / Mac:
+```
 source venv/bin/activate
+```
 #### Windows:
+```
 venv\Scripts\activate
+```
 
 ### 5️⃣ Create .env file for credentials
-#### Example:
-- GEMINI_API_KEY=""
-- SERVICE_ACCOUNT_FILE="model_creds/vertex_ai_credential.json"
-- LOCATION="global"
-- GEMINI_MODEL="gemini-2.5-pro"
-- EMBEDDING_MODEL="models/gemini-embedding-001"
-- TAVILY_API_KEY=""
-- PORT=8000
+```
+GEMINI_API_KEY=""
+SERVICE_ACCOUNT_FILE="model_creds/vertex_ai_credential.json"
+LOCATION="global"
+GEMINI_MODEL="gemini-2.5-pro"
+EMBEDDING_MODEL="models/gemini-embedding-001"
+TAVILY_API_KEY=""
+PORT=8000
+```
 
 ### 6️⃣ Run Project
+```
 python app.py
+```
