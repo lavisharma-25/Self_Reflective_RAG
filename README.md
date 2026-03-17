@@ -139,3 +139,23 @@ PORT=8000
 ```
 python app.py
 ```
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+
+**Steps:**
+
+1. Fork the repository
+2. Create a branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push branch: `git push origin feature/your-feature`
+5. Open a Pull Request
+
+---
+
+## 👨‍💻 Author
+
+**Lavish Sharma**  
+- GitHub: [lavisharma-25](https://github.com/lavisharma-25)  
+- Portfolio: [lavisharma-25.github.io](https://lavisharma-25.github.io/)
