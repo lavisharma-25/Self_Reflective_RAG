@@ -1,0 +1,52 @@
+├── .env
+├── .gitignore
+├── .python-version
+├── README.md
+├── app
+│   ├── __init__.py
+│   ├── api
+│   │   ├── __init__.py
+│   │   ├── chat_router.py
+│   │   ├── doc_router.py
+│   │   ├── health_router.py
+│   │   └── index_router.py
+│   ├── config.py
+│   ├── data
+│   │   ├── Company_Policies.pdf
+│   │   ├── Company_Profile.pdf
+│   │   ├── Product_and_Pricing.pdf
+│   │   └── context.txt
+│   ├── embeddings
+│   │   ├── __init__.py
+│   │   └── vector_store.py
+│   ├── graph
+│   │   ├── __init__.py
+│   │   ├── nodes.py
+│   │   ├── prompts.py
+│   │   ├── rag.py
+│   │   └── routers.py
+│   ├── llm
+│   │   ├── __init__.py
+│   │   └── llm_model.py
+│   ├── main.py
+│   └── models
+│       ├── __init__.py
+│       ├── schema.py
+│       └── state.py
+├── app.py
+├── faiss_index
+│   ├── index.faiss
+│   └── index.pkl
+├── frontend
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── script.js
+│   └── style.css
+├── logs.py
+├── model_creds
+│   └── ai-development-488417-f1cd2523b737.json
+├── pyproject.toml
+├── tree.py
+├── tree.txt
+├── uv.lock
+└── workflow.png
