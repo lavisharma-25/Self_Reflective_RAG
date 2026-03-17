@@ -15,3 +15,5 @@ location = os.getenv("LOCATION")
 credentials = service_account.Credentials.from_service_account_file(os.getenv("SERVICE_ACCOUNT_FILE"),scopes=["https://www.googleapis.com/auth/cloud-platform"])
 
 tavily_api_key = os.getenv("TAVILY_API_KEY")
+
+port = int(os.getenv("PORT", 8000))

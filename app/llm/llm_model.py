@@ -7,5 +7,8 @@ llm = ChatGoogleGenerativeAI(
     project=credentials.project_id,
     credentials=credentials,
     location=location,
-    vertexai=True
+    vertexai=True,
+    model_kwargs={
+        "thinking": 0
+    }
 )

@@ -1,8 +1,10 @@
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.doc_router import router as doc_router
 from app.api.health_router import router as health_router
+from app.api.index_router import router as index_router
+from app.api.doc_router import router as doc_router
 from app.api.chat_router import router as chat_router
 
 app = FastAPI(title="Self Reflective RAG")
@@ -15,6 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.mount("/frontend", StaticFiles(directory="frontend"), name="static")
+
+app.include_router(index_router)
 app.include_router(health_router)
 app.include_router(doc_router)
 app.include_router(chat_router)

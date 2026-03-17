@@ -35,3 +35,8 @@ class RewriteDecision(BaseModel):
 
 class WebQuery(BaseModel):
     web_query: str
+
+
+class ChatRequest(BaseModel):
+    question: str
+    session_id: str

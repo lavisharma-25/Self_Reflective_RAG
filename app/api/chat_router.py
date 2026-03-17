@@ -2,14 +2,9 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from app.graph.rag import workflow
-
+from app.models.schema import ChatRequest
 
 router = APIRouter(prefix="/chat", tags=["Chat"])
-
-class ChatRequest(BaseModel):
-    question: str
-    session_id: str
-
 
 chat_sessions = {}
 

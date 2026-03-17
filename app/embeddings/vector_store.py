@@ -13,7 +13,6 @@ from logs import setup_logger
 
 logger = setup_logger()
 
-
 def generate_context_for_doc():
     
     DATA_DIR = Path("app/data")

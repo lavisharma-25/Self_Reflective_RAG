@@ -1,4 +1,6 @@
 from langgraph.graph import StateGraph, START, END
+from langchain_core.chat_history import InMemoryChatMessageHistory
+from langchain_core.runnables.history import RunnableWithMessageHistory
 
 from app.graph.nodes import *
 from app.graph.routers import *
@@ -84,9 +86,6 @@ png_bytes = flow.draw_mermaid_png()
 with open("workflow.png", "wb") as f:
     f.write(png_bytes)
 
-
-from langchain_core.chat_history import InMemoryChatMessageHistory
-from langchain_core.runnables.history import RunnableWithMessageHistory
 
 store = {}
 
