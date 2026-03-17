@@ -18,7 +18,7 @@ It allows users to query company documents and web sources with context-aware re
 ---
 
 ## 📂 Project Structure
-
+```
 Self Reflective RAG
 ├── .env
 ├── .gitignore
@@ -72,6 +72,7 @@ Self Reflective RAG
 ├── tree.txt
 ├── uv.lock
 └── workflow.png
+```
 
 
 ---
