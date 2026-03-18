@@ -117,11 +117,11 @@ uv sync       # Installs all dependencies automatically
 ### 4️⃣ Activate virtual environment
 #### Linux / Mac:
 ```
-source venv/bin/activate
+source .venv/bin/activate
 ```
 #### Windows:
 ```
-venv\Scripts\activate
+.venv\Scripts\activate
 ```
 
 ### 5️⃣ Create .env file for credentials
